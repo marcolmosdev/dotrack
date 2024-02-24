@@ -16,4 +16,8 @@ export class BudgetComponent {
       this.code = codeService.code();
     });
   }
+
+  unsetCode() {
+    this.codeService.unsetCode();
+  }
 }
