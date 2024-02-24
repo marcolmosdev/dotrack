@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dotrack:build:production"
+              "buildTarget": "dotrack:build:production"
             },
             "development": {
-              "browserTarget": "dotrack:build:development"
+              "buildTarget": "dotrack:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dotrack:build"
+            "buildTarget": "dotrack:build"
           }
         },
         "test": {
