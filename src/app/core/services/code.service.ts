@@ -4,9 +4,12 @@ import { Injectable, computed, signal } from '@angular/core';
   providedIn: 'root'
 })
 export class CodeService {
-
-  constructor() { }
+  constructor() {}
 
   private codeSource = signal<string>('');
   code = computed(() => this.codeSource());
+
+  setCode(code: string) {
+    this.codeSource.set(code);
+  }
 }

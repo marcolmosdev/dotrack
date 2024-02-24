@@ -1,1 +1,3 @@
-<p>code works!</p>
+<form [formGroup]="codeForm" (ngSubmit)="setCode()">
+    <input id="code" type="text" formControlName="code" placeholder="Insert budget code">
+</form>

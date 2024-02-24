@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
+import { CodeService } from 'src/app/core/services/code.service';
 
 @Component({
   selector: 'app-budget',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
   templateUrl: './budget.component.html',
   styleUrl: './budget.component.scss'
 })
-export class BudgetComponent {}
+export class BudgetComponent {
+  code: string = '';
+
+  constructor(private codeService: CodeService) {
+    effect(() => {
+      this.code = codeService.code();
+    });
+  }
+}
