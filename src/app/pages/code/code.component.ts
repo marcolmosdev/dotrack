@@ -21,7 +21,6 @@ export class CodeComponent {
   setCode() {
     if (this.codeForm.valid && this.codeForm.controls.code.value) {
       this.codeService.setCode(this.codeForm.controls.code.value);
-      this.router.navigate(['budget']);
     }
   }
 }
