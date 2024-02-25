@@ -7,7 +7,7 @@ import { config } from '../../../environments/config';
   providedIn: 'root'
 })
 export class CodeService {
-  private apiUrl = config.apiUrl() + 'code/';
+  private apiUrl = config.apiUrl() + 'code';
 
   constructor(private router: Router, private http: HttpClient) {}
 
