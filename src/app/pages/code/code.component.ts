@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { CodeService } from 'src/app/core/services/code.service';
+import { ProjectService } from 'src/app/core/services/project.service';
 
 @Component({
   selector: 'app-code',
@@ -14,13 +13,29 @@ export class CodeComponent {
   codeForm = new FormGroup({
     code: new FormControl('')
   });
+  incorrectCode: boolean = false;
 
-  constructor(private codeService: CodeService, private router: Router) {}
+  constructor(private projectService: ProjectService) {
+    effect(() => {
+      this.listenProjectCodeValidity();
+    });
+  }
 
-  // This function sets the code in the code service and navigates to the budget page
-  setCode() {
+  // This function listens for the project code validity
+  listenProjectCodeValidity() {
+    this.incorrectCode = this.projectService.invalidProjectCode();
+    this.incorrectCode && this.codeForm.get('code')?.setValue('');
+  }
+
+  // This function unset the project code invalid flag
+  unsetInvalidCodeProject() {
+    this.projectService.unsetInvalidProjectCode();
+  }
+
+  // This function tries to get the project from the server
+  getProject() {
     if (this.codeForm.valid && this.codeForm.controls.code.value) {
-      this.codeService.setCode(this.codeForm.controls.code.value);
+      this.projectService.getProject(this.codeForm.controls.code.value);
     }
   }
 }

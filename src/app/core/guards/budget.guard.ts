@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { CodeService } from '../services/code.service';
+import { ProjectService } from '../services/project.service';
 
 export const BudgetGuard: CanActivateFn = (route, state) => {
-  return inject(CodeService).code() !== '' ? true : inject(Router).createUrlTree(['']);
+  return typeof inject(ProjectService).project() !== 'undefined' ? true : inject(Router).createUrlTree(['']);
 };

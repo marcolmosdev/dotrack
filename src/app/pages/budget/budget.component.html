@@ -1,3 +1,10 @@
-<p>budget works!</p>
-<h1>{{ code }}</h1>
-<button (click)="unsetCode()">Unset code</button>
+<div>
+    <h2>Project Details</h2>
+    <p>Project ID: {{ project?.id }}</p>
+    <p>Client ID: {{ project?.clientId }}</p>
+    <p>Project Name: {{ project?.name }}</p>
+    <p>Creation Date: {{ project?.createdAt }}</p>
+    <p>Share Code: {{ project?.shareCode }}</p>
+    <button (click)="unsetProject()">Close project</button>
+  </div>
+  

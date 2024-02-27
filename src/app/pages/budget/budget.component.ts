@@ -1,5 +1,6 @@
 import { Component, effect } from '@angular/core';
-import { CodeService } from 'src/app/core/services/code.service';
+import { ProjectService } from 'src/app/core/services/project.service';
+import { Project } from 'src/app/shared/models/project.model';
 
 @Component({
   selector: 'app-budget',
@@ -9,15 +10,15 @@ import { CodeService } from 'src/app/core/services/code.service';
   styleUrl: './budget.component.scss'
 })
 export class BudgetComponent {
-  code: string = '';
+  project: Project | undefined;
 
-  constructor(private codeService: CodeService) {
+  constructor(private projectService: ProjectService) {
     effect(() => {
-      this.code = codeService.code();
+      this.project = projectService.project();
     });
   }
 
-  unsetCode() {
-    this.codeService.unsetCode();
+  unsetProject() {
+    this.projectService.unsetProject();
   }
 }

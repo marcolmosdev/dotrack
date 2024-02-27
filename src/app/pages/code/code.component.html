@@ -1,3 +1,6 @@
-<form [formGroup]="codeForm" (ngSubmit)="setCode()">
-    <input id="code" type="text" formControlName="code" placeholder="Insert budget code">
+<form [formGroup]="codeForm" (ngSubmit)="getProject()">
+    <input id="code" type="text" formControlName="code" placeholder="Insert budget code" (input)="incorrectCode && unsetInvalidCodeProject()">
 </form>
+@if (incorrectCode) {
+    <span style="color: rgb(255 125 102)"> Incorrect code </span>
+}
