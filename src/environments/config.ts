@@ -5,6 +5,6 @@ export const config = {
   },
   github: {
     clientId: '7add717cd26af2976ae8',
-    redirectURL: 'https://dotrack.vercel.app/auth/callback',
+    redirectURL: 'https://dotrack.vercel.app/github/callback',
   }
 };
