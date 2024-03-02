@@ -1,0 +1,10 @@
+<button [routerLink]="['/home']">Go back</button>
+<br>
+<br>
+Developer section
+<br>
+<br>
+@if (currentGithubUser) {
+    {{ currentGithubUser | json }}
+    <button (click)="signOutFromGithub()">Log out</button>
+}

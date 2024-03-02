@@ -1,0 +1,29 @@
+<nav>
+    <button [routerLink]="['/budget']">Budget section</button>
+
+</nav>
+<br>
+Clients:
+<form [formGroup]="codeForm" (ngSubmit)="getProject()">
+    <input id="code" type="text" formControlName="code" placeholder="Insert budget code" (input)="incorrectCode && unsetInvalidCodeProject()">
+</form>
+@if (incorrectCode) {
+    <span style="color: rgb(255 125 102)"> Incorrect code </span>
+}
+<br>
+Developers:
+@if (currentGithubUser) {
+    <br>
+    <br>
+    Hey, {{currentGithubUser.name}}. You are already logged in.
+    <br>
+    <br>
+    <button [routerLink]="['/developer']">Developer section</button>
+    <br>
+    <br>
+    <button (click)="signOutFromGithub()">Log out</button>
+} @else {
+    <br>
+    <br>
+    <a style="color: white" [href]="getGithubOAuthURL()">Log in with github</a>
+}

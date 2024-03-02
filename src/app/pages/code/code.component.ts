@@ -1,11 +1,12 @@
 import { Component, effect } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { ProjectService } from 'src/app/core/services/project.service';
 
 @Component({
   selector: 'app-code',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './code.component.html',
   styleUrl: './code.component.scss'
 })

@@ -1,3 +1,6 @@
+<button [routerLink]="['/home']">Go back</button>
+<br>
+<br>
 <form [formGroup]="codeForm" (ngSubmit)="getProject()">
     <input id="code" type="text" formControlName="code" placeholder="Insert budget code" (input)="incorrectCode && unsetInvalidCodeProject()">
 </form>
